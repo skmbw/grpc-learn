@@ -3,7 +3,15 @@
 # Compiled class file
 *.class
 
-/target
+/target/classes
+
+/target/test-classes
+
+/target/maven-status
+
+/target/protoc-dependencies
+
+/target/protoc-plugins
 
 # Log file
 *.log
