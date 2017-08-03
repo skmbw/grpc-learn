@@ -1,6 +1,7 @@
 package io.grpc.examples.routeguide;
 
 import io.grpc.stub.StreamObserver;
+import org.lognet.springboot.grpc.GRpcService;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -20,6 +21,7 @@ import static java.util.concurrent.TimeUnit.NANOSECONDS;
  *
  * <p>See route_guide.proto for details of the methods.
  */
+@GRpcService
 public class RouteGuideService extends RouteGuideGrpc.RouteGuideImplBase {
     private static final Logger logger = Logger.getLogger(RouteGuideService.class.getName());
 
