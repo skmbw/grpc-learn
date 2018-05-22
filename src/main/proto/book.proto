@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.vteba.tutorial";
+option java_outer_classname = "BookProto";
+
+package book; // 这个应该是java_package的最后一个子包的名字
+
+message Book {
+    int64 isbn = 1;
+    string title = 2;
+    string author = 3;
+}
+
+message GetBookRequest {
+    int64 isbn = 1;
+}
+
+message QueryBooksRequest {
+    string author_prefix = 1;
+}
+
+service BookService {
+    rpc GetBook(GetBookRequest) returns (Book) {}
+    rpc QueryBooks(QueryBooksRequest) returns (stream Book) {}
+}
