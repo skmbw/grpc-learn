@@ -30,6 +30,10 @@ public class ProtobufMessageConverter {
         request.setName("yinlei");
         byte[] pbyte = ProtostuffIOUtil.toByteArray(request, RuntimeSchema.getSchema(Request.class), LinkedBuffer.allocate());
         System.out.println(Arrays.toString(pbyte));
+
+        Message.Builder builder2 = getMessageBuilder(HelloRequest.class);
+        builder.mergeFrom(pbyte);
+        Message message3 = builder.build();
         // 输出的值是一样的
         System.out.println(System.currentTimeMillis() - d);
     }
