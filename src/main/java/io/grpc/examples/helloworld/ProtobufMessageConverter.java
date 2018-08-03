@@ -1,8 +1,12 @@
 package io.grpc.examples.helloworld;
 
 import com.google.protobuf.Message;
+import io.protostuff.LinkedBuffer;
+import io.protostuff.ProtostuffIOUtil;
+import io.protostuff.runtime.RuntimeSchema;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -16,10 +20,17 @@ public class ProtobufMessageConverter {
         long d = System.currentTimeMillis();
         Message message = HelloRequest.newBuilder().setName("yinlei").build();
         byte[] msg = message.toByteArray();
+        System.out.println(Arrays.toString(msg));
 
         Message.Builder builder = getMessageBuilder(HelloRequest.class);
         builder.mergeFrom(msg);
         Message message1 = builder.build();
+
+        Request request = new Request();
+        request.setName("yinlei");
+        byte[] pbyte = ProtostuffIOUtil.toByteArray(request, RuntimeSchema.getSchema(Request.class), LinkedBuffer.allocate());
+        System.out.println(Arrays.toString(pbyte));
+        // 输出的值是一样的
         System.out.println(System.currentTimeMillis() - d);
     }
 
