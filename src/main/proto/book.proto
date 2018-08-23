@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option java_multiple_files = true; // 是否产生多个文件
+option java_package = "com.vteba.tutorial"; // 这个是生成的java包，类都在这个包下
+option java_outer_classname = "BookProto"; // 这个是总的文件名，如果只有一个文件的话
+
+// 这个package是proto文件之间互相引用时，比如引用到其他proto文件中定义的类型，为了防止冲突，添加package前缀，
+// 类似java的package
+package book; // 这个应该是java_package的最后一个子包的名字（可以这么用，但不是这样的）
+
+
+message Book {
+    int64 isbn = 1;
+    string title = 2;
+    string author = 3;
+}
+
+message GetBookRequest {
+    int64 isbn = 1;
+}
+
+message QueryBooksRequest {
+    string author_prefix = 1;
+}
+
+service BookService {
+    rpc GetBook(GetBookRequest) returns (Book) {}
+    rpc QueryBooks(QueryBooksRequest) returns (stream Book) {}
+}
