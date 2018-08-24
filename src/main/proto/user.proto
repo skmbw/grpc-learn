@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package com.xueershangda.tianxun.user.model;
+
+message User {
+	string id = 1;
+	string name = 2;
+	string nickName = 3;
+	string account = 4;
+	string email = 5;
+	string mobile = 6;
+	string password = 7;
+	int64 registerDate = 8;
+	int32 age = 9;
+  // protobuf 根本不记录字段的名字，所以可以不一样，但是类型必须一样
+	int64 lastLoginDate = 10;
+	int32 state = 11;
+	int32 level = 12;
+	int32 asker = 13;
+	int32 answer = 14;
+	string identityCard = 15;
+	int32 identityType = 16;
+	string alipay = 17;
+	string weixin = 18;
+	string qq = 19;
+	string address = 20;
+	string avatar = 21;
+	int64 birthday = 22;
+	string summary = 23;
+	string signature = 24;
+	string title = 25;
+	int64 focusNumber = 26;
+	int64 loveNumber = 27;
+	int32 page = 28;
+	int32 pageSize = 29;
+	string orderBy = 30;
+	string tokenId = 31;
+	string oldPassword = 32;
+	string checkPasswd = 33;
+  int32 gender = 34;
+  bool agreement = 35;
+  int32 source = 36;
+}
+
+message UserReply {
+  int32 code = 1;
+  string message = 2;
+  User data = 3;
+}
+
+message UserReplyList {
+  int32 code = 1;
+  string message = 2;
+  repeated User data = 3;
+}
