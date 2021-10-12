@@ -11,7 +11,7 @@
     <properties>
         <grpc-version>1.41.0</grpc-version>
         <protostuff-version>1.7.4</protostuff-version>
-        <dubbo.compiler.version>3.0.3</dubbo.compiler.version>
+        <dubbo.compiler.version>0.0.1</dubbo.compiler.version>
     </properties>
 
     <dependencies>
@@ -133,6 +133,7 @@
                             <goal>compile</goal>
                             <goal>compile-custom</goal>
                             <goal>test-compile</goal>
+                            <goal>test-compile-custom</goal>
                         </goals>
                     </execution>
                 </executions>
