@@ -28,7 +28,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Matchers;
+import org.mockito.ArgumentMatchers;
 
 /**
  * Unit tests for {@link HelloWorldClient}.
@@ -70,7 +70,7 @@ public class HelloWorldClientTest {
     client.greet(testName);
 
     verify(serviceImpl)
-        .sayHello(requestCaptor.capture(), Matchers.<StreamObserver<HelloReply>>any());
+        .sayHello(requestCaptor.capture(), ArgumentMatchers.<StreamObserver<HelloReply>>any());
     assertEquals(testName, requestCaptor.getValue().getName());
   }
 }
