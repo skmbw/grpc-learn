@@ -52,7 +52,7 @@ public final class HelloJsonClient {
   /** Construct client connecting to HelloWorld server at {@code host:port}. */
   public HelloJsonClient(String host, int port) {
     channel = ManagedChannelBuilder.forAddress(host, port)
-        .usePlaintext(true)
+        .usePlaintext()
         .build();
     blockingStub = new HelloJsonStub(channel);
   }
@@ -96,10 +96,10 @@ public final class HelloJsonClient {
   static final class HelloJsonStub extends AbstractStub<HelloJsonStub> {
 
     static final MethodDescriptor<HelloRequest, HelloReply> METHOD_SAY_HELLO =
-        GreeterGrpc.METHOD_SAY_HELLO
+        GreeterGrpc.getSayHelloMethod()
             .toBuilder(
-                ProtoUtils.jsonMarshaller(HelloRequest.getDefaultInstance()),
-                ProtoUtils.jsonMarshaller(HelloReply.getDefaultInstance()))
+                ProtoUtils.marshaller(HelloRequest.getDefaultInstance()),
+                ProtoUtils.marshaller(HelloReply.getDefaultInstance()))
             .build();
 
     protected HelloJsonStub(Channel channel) {

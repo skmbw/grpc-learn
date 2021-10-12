@@ -83,7 +83,7 @@ public class DetailErrorSample {
       }
     }).build().start();
     channel =
-        ManagedChannelBuilder.forAddress("localhost", server.getPort()).usePlaintext(true).build();
+        ManagedChannelBuilder.forAddress("localhost", server.getPort()).usePlaintext().build();
 
     blockingCall();
     futureCallDirect();
@@ -198,7 +198,7 @@ public class DetailErrorSample {
    */
   void advancedAsyncCall() {
     ClientCall<HelloRequest, HelloReply> call =
-        channel.newCall(GreeterGrpc.METHOD_SAY_HELLO, CallOptions.DEFAULT);
+        channel.newCall(GreeterGrpc.getSayHelloMethod(), CallOptions.DEFAULT);
 
     final CountDownLatch latch = new CountDownLatch(1);
 
