@@ -1,3 +1,11 @@
 1、配置好插件以后，打开maven菜单
-2、然后点击plugins-->protobuf-->protobuf:compile-custom
-3、右键-运行项目（run [protobuf]）
+2、然后点击plugins-->protobuf-->protobuf:compile-custom，右键Run grpc-learn[protobuf] 产生grpc service
+3、然后点击plugins-->protobuf-->protobuf:compile，右键Run grpc-learn[protobuf] 产生protobuf 相关bean
+4、右键-运行项目（run grpc-learn[protobuf]）
+
+<!-- proto文件放置的目录 -->
+<protoSourceRoot>${project.basedir}/src/main/java/com/xueershangda/netty/proto</protoSourceRoot>
+<!-- 生成文件的目录，默认在targets目录下 -->
+<outputDirectory>${project.basedir}/src/main/java</outputDirectory>
+<!-- 生成文件前是否把目标目录清空，这个最好设置为false，以免误删项目文件 -->
+<clearOutputDirectory>false</clearOutputDirectory>
