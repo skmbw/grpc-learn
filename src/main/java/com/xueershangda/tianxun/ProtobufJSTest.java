@@ -2,6 +2,7 @@ package com.xueershangda.tianxun;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.xueershangda.tianxun.user.model.UserOuterClass;
+import io.grpc.examples.helloworld.HelloReply;
 
 import java.util.Arrays;
 
@@ -41,6 +42,9 @@ public class ProtobufJSTest {
     }
 
     public static void testHelloWorld() {
+        // 可以获取这个实例，减少创建工作。
+        HelloReply helloReply = HelloReply.getDefaultInstance();
 
+        byte[] helloBytes = HelloReply.newBuilder().setMessage("hello").build().toByteArray();
     }
 }
