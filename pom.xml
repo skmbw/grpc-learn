@@ -156,8 +156,8 @@
 <!--                    <protoExecutable>/usr/bin/proto</protoExecutable>-->
                     <protocArtifact>com.google.protobuf:protoc:${protobuf-version}:exe:${os.detected.classifier}</protocArtifact>
                     <pluginId>grpc-java</pluginId>
-                    <!-- 配置了dubbo-compiler，就不需要这个grpc的编译器了 -->
-                    <!--                    <pluginArtifact>io.grpc:protoc-gen-grpc-java:${grpc-version}:exe:${os.detected.classifier}</pluginArtifact>-->
+                    <!-- 还是需要这个的，这个是单独生成grpc的。配置了dubbo-compiler，就不需要这个grpc的编译器了 -->
+                    <pluginArtifact>io.grpc:protoc-gen-grpc-java:${grpc-version}:exe:${os.detected.classifier}</pluginArtifact>
 <!--                    <pluginArtifact>com.apache.dubbo:dubbo-compiler:${dubbo.compiler.version}:exe:${os.detected.classifier}</pluginArtifact>-->
                     <!-- 这个还是先不指定，生成在target/generated-source/protobuf目录中 -->
 <!--                    <outputDirectory>build/generated-sources/proto/main/java</outputDirectory>-->

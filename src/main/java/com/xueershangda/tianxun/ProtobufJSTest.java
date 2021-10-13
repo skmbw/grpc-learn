@@ -39,4 +39,8 @@ public class ProtobufJSTest {
         UserOuterClass.UserReplyList.parseFrom(array);
 
     }
+
+    public static void testHelloWorld() {
+
+    }
 }
