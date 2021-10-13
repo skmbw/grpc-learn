@@ -12,7 +12,9 @@
         <grpc-version>1.41.0</grpc-version>
         <protobuf-version>3.18.1</protobuf-version>
         <protostuff-version>1.7.4</protostuff-version>
+        <dubbo.version>3.0.3</dubbo.version>
         <dubbo.compiler.version>0.0.1</dubbo.compiler.version>
+        <spring.version>4.3.16.RELEASE</spring.version>
     </properties>
 
     <dependencies>
@@ -113,6 +115,21 @@
             <artifactId>protostuff-collectionschema</artifactId>
             <version>${protostuff-version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>${dubbo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-common</artifactId>
+            <version>${dubbo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-serialization-protobuf</artifactId>
+            <version>2.7.14</version>
+        </dependency>
         <!--事实上是不需要的-->
 <!--        <dependency>-->
 <!--            <groupId>org.apache.dubbo</groupId>-->
@@ -120,6 +137,7 @@
 <!--            <version>${dubbo.compiler.version}</version>-->
 <!--        </dependency>-->
     </dependencies>
+
     <build>
         <finalName>grpc-learn</finalName>
         <extensions>
@@ -141,7 +159,8 @@
                     <!-- 配置了dubbo-compiler，就不需要这个grpc的编译器了 -->
                     <!--                    <pluginArtifact>io.grpc:protoc-gen-grpc-java:${grpc-version}:exe:${os.detected.classifier}</pluginArtifact>-->
 <!--                    <pluginArtifact>com.apache.dubbo:dubbo-compiler:${dubbo.compiler.version}:exe:${os.detected.classifier}</pluginArtifact>-->
-                    <outputDirectory>build/generated/source/proto/main/java</outputDirectory>
+                    <!-- 这个还是先不指定，生成在target/generated-source/protobuf目录中 -->
+<!--                    <outputDirectory>build/generated-sources/proto/main/java</outputDirectory>-->
                     <clearOutputDirectory>false</clearOutputDirectory>
                     <protocPlugins>
                         <protocPlugin>
