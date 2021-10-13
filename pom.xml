@@ -113,6 +113,12 @@
             <artifactId>protostuff-collectionschema</artifactId>
             <version>${protostuff-version}</version>
         </dependency>
+        <!--事实上是不需要的-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.dubbo</groupId>-->
+<!--            <artifactId>dubbo-compiler</artifactId>-->
+<!--            <version>${dubbo.compiler.version}</version>-->
+<!--        </dependency>-->
     </dependencies>
     <build>
         <finalName>grpc-learn</finalName>
@@ -132,14 +138,20 @@
 <!--                    <protoExecutable>/usr/bin/proto</protoExecutable>-->
                     <protocArtifact>com.google.protobuf:protoc:${protobuf-version}:exe:${os.detected.classifier}</protocArtifact>
                     <pluginId>grpc-java</pluginId>
-                    <pluginArtifact>io.grpc:protoc-gen-grpc-java:${grpc-version}:exe:${os.detected.classifier}</pluginArtifact>
+                    <!-- 配置了dubbo-compiler，就不需要这个grpc的编译器了 -->
+                    <!--                    <pluginArtifact>io.grpc:protoc-gen-grpc-java:${grpc-version}:exe:${os.detected.classifier}</pluginArtifact>-->
+<!--                    <pluginArtifact>com.apache.dubbo:dubbo-compiler:${dubbo.compiler.version}:exe:${os.detected.classifier}</pluginArtifact>-->
+                    <outputDirectory>build/generated/source/proto/main/java</outputDirectory>
+                    <clearOutputDirectory>false</clearOutputDirectory>
                     <protocPlugins>
                         <protocPlugin>
                             <id>dubbo</id>
                             <groupId>org.apache.dubbo</groupId>
                             <artifactId>dubbo-compiler</artifactId>
                             <version>${dubbo.compiler.version}</version>
-                            <mainClass>org.apache.dubbo.gen.dubbo.Dubbo3Generator</mainClass>
+                            <!-- 没有Dubbo3Generator这个类啊 -->
+<!--                            <mainClass>org.apache.dubbo.gen.dubbo.Dubbo3Generator</mainClass>-->
+                            <mainClass>org.apache.dubbo.gen.dubbo.DubboGenerator</mainClass>
                         </protocPlugin>
                     </protocPlugins>
                 </configuration>
