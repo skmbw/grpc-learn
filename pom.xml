@@ -13,7 +13,8 @@
         <protobuf-version>3.18.1</protobuf-version>
         <protostuff-version>1.7.4</protostuff-version>
         <dubbo.version>3.0.3</dubbo.version>
-        <dubbo.compiler.version>0.0.1</dubbo.compiler.version>
+        <dubbo2.version>2.7.14</dubbo2.version>
+        <dubbo.compiler.version>0.0.2</dubbo.compiler.version>
         <spring.version>4.3.16.RELEASE</spring.version>
     </properties>
 
@@ -128,7 +129,17 @@
         <dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-serialization-protobuf</artifactId>
-            <version>2.7.14</version>
+            <version>${dubbo2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-registry-api</artifactId>
+            <version>${dubbo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-registry-redis</artifactId>
+            <version>${dubbo2.version}</version>
         </dependency>
         <!--事实上是不需要的-->
 <!--        <dependency>-->
@@ -168,9 +179,9 @@
                             <groupId>org.apache.dubbo</groupId>
                             <artifactId>dubbo-compiler</artifactId>
                             <version>${dubbo.compiler.version}</version>
-                            <!-- 没有Dubbo3Generator这个类啊 -->
-<!--                            <mainClass>org.apache.dubbo.gen.dubbo.Dubbo3Generator</mainClass>-->
-                            <mainClass>org.apache.dubbo.gen.dubbo.DubboGenerator</mainClass>
+                            <!-- 没有0.0.1 没有Dubbo3Generator这个类啊，0.0.2才有 -->
+                            <mainClass>org.apache.dubbo.gen.dubbo.Dubbo3Generator</mainClass>
+<!--                            <mainClass>org.apache.dubbo.gen.dubbo.DubboGenerator</mainClass>-->
                         </protocPlugin>
                     </protocPlugins>
                 </configuration>
