@@ -15,7 +15,8 @@
         <dubbo.version>3.0.3</dubbo.version>
         <dubbo2.version>2.7.14</dubbo2.version>
         <dubbo.compiler.version>0.0.2</dubbo.compiler.version>
-        <spring.version>4.3.16.RELEASE</spring.version>
+        <spring.version>5.3.10</spring.version>
+        <spring-security.version>5.5.2</spring-security.version>
     </properties>
 
     <dependencies>
